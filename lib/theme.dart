@@ -24,7 +24,6 @@ class AppTheme {
       primary: primaryOrange,
       secondary: primaryOrange,
       surface: darkCardBackground,
-      background: darkBackground,
     ),
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
@@ -80,7 +79,6 @@ class AppTheme {
       primary: primaryOrange,
       secondary: primaryOrange,
       surface: lightCardBackground,
-      background: lightBackground,
     ),
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,

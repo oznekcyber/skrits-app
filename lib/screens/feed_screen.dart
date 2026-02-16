@@ -205,7 +205,7 @@ class _FlashcardViewState extends State<_FlashcardView> {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Theme.of(context).colorScheme.background,
+            Theme.of(context).scaffoldBackgroundColor,
             Theme.of(context).colorScheme.primary.withOpacity(0.05),
           ],
         ),
