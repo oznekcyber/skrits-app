@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Learning Mode Setup</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ff6a00",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#23170f",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for sleek look */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Custom toggle switch styling */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #ff6a00;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #ff6a00;
+        }
+        
+        /* Subtle glassmorphism for cards */
+        .glass-panel {
+            background: rgba(255, 106, 0, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 106, 0, 0.1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white antialiased h-screen overflow-hidden selection:bg-primary selection:text-white">
+<!-- Main Container - Mobile Dimensions -->
+<div class="max-w-md mx-auto h-full flex flex-col relative bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden">
+<!-- Header Section -->
+<header class="pt-12 px-6 pb-6 flex items-center justify-between z-10">
+<button class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-icons-round text-2xl dark:text-gray-300">chevron_left</span>
+</button>
+<div class="flex-1 text-center">
+<!-- Decorative dot indicator for 'active' status -->
+<div class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-2">
+<div class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse mr-2"></div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary">Configuration</span>
+</div>
+</div>
+<button class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-icons-round text-2xl dark:text-gray-300">settings</span>
+</button>
+</header>
+<!-- Main Content Scroll Area -->
+<main class="flex-1 overflow-y-auto scrollbar-hide px-6 pb-32">
+<!-- Title Area -->
+<div class="mb-10 text-center">
+<h1 class="text-4xl font-bold tracking-tight mb-3 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">Learning Mode</h1>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-medium">Customize your neural environment.</p>
+</div>
+<!-- Visualization / Graphic -->
+<div class="relative w-full h-48 rounded-xl overflow-hidden mb-10 group cursor-pointer">
+<!-- Abstract Gradient Background -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-background-dark to-black border border-white/5"></div>
+<!-- Animated waveform simulation (static for this output but implied design) -->
+<div class="absolute inset-0 flex items-center justify-center gap-1 opacity-60">
+<div class="w-1.5 h-12 bg-primary rounded-full"></div>
+<div class="w-1.5 h-16 bg-primary/80 rounded-full"></div>
+<div class="w-1.5 h-8 bg-primary/60 rounded-full"></div>
+<div class="w-1.5 h-20 bg-primary rounded-full"></div>
+<div class="w-1.5 h-10 bg-primary/40 rounded-full"></div>
+</div>
+<!-- Overlay text -->
+<div class="absolute bottom-4 left-4">
+<span class="text-xs font-bold text-primary uppercase tracking-wider bg-black/40 backdrop-blur-md px-2 py-1 rounded">Current Preset</span>
+<p class="text-white font-medium mt-1">Deep Focus • 45m</p>
+</div>
+<img alt="Abstract fluid dark gradient waves representing focus and sound" class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay" data-alt="Abstract fluid dark gradient waves representing focus and sound" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB95X12f3DAgzHTZbETDd9v6-Ves0uzpZvSclze90TM8l1WMNMlVwBVU0AmJ0ba7-Ot1smjRZBXMDM24atigfLNFLvYzOQzOp_rxNzONlMmp-nEpVvpYYtU4KSrVUBK6cNMicAklND4wt3SSAyRi2rtdmabMrWNXlNm4OH5CCtGoc35RKgdrwfB_QCfIoM2YLkJ-ZBxcFGapGKXD0hi4_LwlQWf5_n9jCkLjYgj5M1W3atIdWpe0swxoTb-szth4NE4jbNyOtxuU3Ph"/>
+</div>
+<!-- Toggles Section -->
+<div class="space-y-4">
+<!-- Toggle Item: Silent Reading -->
+<div class="flex items-center justify-between p-5 rounded-xl bg-white dark:bg-[#2f2219] border border-gray-100 dark:border-white/5 transition-all active:scale-[0.99]">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/20 flex items-center justify-center text-primary">
+<span class="material-icons-round">visibility</span>
+</div>
+<div>
+<h3 class="font-semibold text-gray-900 dark:text-white">Silent Reading</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400">Text only, no audio narration</p>
+</div>
+</div>
+<!-- Toggle Switch -->
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-gray-200 appearance-none cursor-pointer transition-all duration-300 right-6 checked:right-0 checked:border-primary" id="toggle-silent" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-200 dark:bg-gray-700 cursor-pointer transition-colors duration-300 checked:bg-primary" for="toggle-silent"></label>
+</div>
+</div>
+<!-- Toggle Item: Auto Voice Mode -->
+<div class="flex items-center justify-between p-5 rounded-xl bg-white dark:bg-[#2f2219] border border-gray-100 dark:border-white/5 transition-all active:scale-[0.99]">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/20 flex items-center justify-center text-primary">
+<span class="material-icons-round">record_voice_over</span>
+</div>
+<div>
+<h3 class="font-semibold text-gray-900 dark:text-white">Auto Voice Mode</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400">AI narrates flashcards</p>
+</div>
+</div>
+<!-- Toggle Switch (Checked by default example) -->
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-gray-200 appearance-none cursor-pointer transition-all duration-300 right-0 border-primary" id="toggle-voice" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-primary cursor-pointer transition-colors duration-300" for="toggle-voice"></label>
+</div>
+</div>
+<!-- Toggle Item: Focus Mode -->
+<div class="flex items-center justify-between p-5 rounded-xl bg-white dark:bg-[#2f2219] border border-gray-100 dark:border-white/5 transition-all active:scale-[0.99]">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/20 flex items-center justify-center text-primary">
+<span class="material-icons-round">headphones</span>
+</div>
+<div>
+<h3 class="font-semibold text-gray-900 dark:text-white">Focus Mode</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400">Enable background sounds</p>
+</div>
+</div>
+<!-- Toggle Switch (Checked) -->
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-gray-200 appearance-none cursor-pointer transition-all duration-300 right-0 border-primary" id="toggle-focus" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-primary cursor-pointer transition-colors duration-300" for="toggle-focus"></label>
+</div>
+</div>
+</div>
+<!-- Ambient Sound Selector (Conditional upon Focus Mode) -->
+<div class="mt-8">
+<div class="flex items-center justify-between mb-4 px-1">
+<h2 class="text-sm font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Ambient Sound</h2>
+<span class="text-xs text-primary font-medium cursor-pointer hover:underline">View All</span>
+</div>
+<div class="flex gap-4 overflow-x-auto pb-4 scrollbar-hide -mx-6 px-6 snap-x">
+<!-- Sound Card: Rain (Active) -->
+<div class="snap-center shrink-0 w-36 h-40 p-4 rounded-xl bg-primary/20 border-2 border-primary relative flex flex-col justify-between group cursor-pointer transition-all">
+<div class="flex justify-between items-start">
+<span class="material-icons-round text-primary">water_drop</span>
+<div class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(255,106,0,0.8)]"></div>
+</div>
+<div class="absolute inset-0 flex items-center justify-center opacity-30">
+<!-- Simple SVG Waveform representation -->
+<svg class="text-primary fill-current" height="40" preserveaspectratio="none" viewbox="0 0 100 40" width="100%">
+<path d="M0 20 Q 25 40 50 20 T 100 20 V 40 H 0 Z"></path>
+</svg>
+</div>
+<div>
+<h4 class="font-bold text-white text-sm">Heavy Rain</h4>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-icons-round text-primary text-sm">volume_up</span>
+<span class="text-[10px] text-gray-300">Playing</span>
+</div>
+</div>
+</div>
+<!-- Sound Card: Library -->
+<div class="snap-center shrink-0 w-36 h-40 p-4 rounded-xl bg-white/5 dark:bg-white/5 border border-transparent hover:border-gray-500 relative flex flex-col justify-between group cursor-pointer transition-all">
+<div class="flex justify-between items-start">
+<span class="material-icons-round text-gray-400 group-hover:text-white transition-colors">menu_book</span>
+<button class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-icons-round text-xs">play_arrow</span>
+</button>
+</div>
+<div>
+<h4 class="font-medium text-gray-300 group-hover:text-white transition-colors text-sm">Library</h4>
+<p class="text-[10px] text-gray-500 mt-1">Soft pages turning</p>
+</div>
+</div>
+<!-- Sound Card: Brown Noise -->
+<div class="snap-center shrink-0 w-36 h-40 p-4 rounded-xl bg-white/5 dark:bg-white/5 border border-transparent hover:border-gray-500 relative flex flex-col justify-between group cursor-pointer transition-all">
+<div class="flex justify-between items-start">
+<span class="material-icons-round text-gray-400 group-hover:text-white transition-colors">graphic_eq</span>
+<button class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-icons-round text-xs">play_arrow</span>
+</button>
+</div>
+<div>
+<h4 class="font-medium text-gray-300 group-hover:text-white transition-colors text-sm">Brown Noise</h4>
+<p class="text-[10px] text-gray-500 mt-1">Deep frequency</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Fixed Bottom CTA -->
+<div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-background-dark via-background-dark to-transparent z-20">
+<button class="w-full bg-primary hover:bg-orange-600 text-white font-bold text-lg py-4 px-6 rounded-full shadow-[0_10px_40px_-10px_rgba(255,106,0,0.5)] transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 group">
+                Enter Feed
+                <span class="material-icons-round group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</body></html>

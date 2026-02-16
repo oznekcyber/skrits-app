@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Study Topics</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ff6a00",
+                        "primary-dark": "#cc5500",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#23170f",
+                        "card-dark": "#2c241b",
+                        "card-hover": "#362d24",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem", 
+                        "lg": "1.5rem", 
+                        "xl": "2rem", 
+                        "2xl": "2.5rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px -5px rgba(255, 106, 0, 0.3)',
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-white font-display antialiased h-screen overflow-hidden flex flex-col selection:bg-primary selection:text-white">
+<!-- Header Section -->
+<header class="flex-none px-6 pt-12 pb-4 flex justify-between items-center z-10 bg-gradient-to-b from-background-dark via-background-dark to-transparent">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-icons-round text-xl">local_fire_department</span>
+</div>
+<div>
+<h1 class="text-sm font-medium text-gray-400 uppercase tracking-wider">Total Streak</h1>
+<p class="text-xl font-bold">14 Days</p>
+</div>
+</div>
+<button class="w-10 h-10 rounded-full bg-card-dark border border-white/5 flex items-center justify-center hover:bg-card-hover transition-colors">
+<img alt="User Profile" class="w-full h-full object-cover rounded-full opacity-90 hover:opacity-100" data-alt="User profile picture of a young woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlJARuy3Gpn18UZrNUQ5hqwx_wKUjBzRDocnc_jWJxg3nPfMF3UEbefQrJzKRTDUvjSbZr84np8jxsEOs3rEG16RQTn6Xxob8RUwOh2niNBOh-aj7Gq8LSmKdJcfML0ebaygzRChkjjkqQofvaiMWfm4Ac2411oV9pK70mc47GTQTBgPQa-PHZbpOYeJ5FlN1FTjfmvIW6XllRa37ECah3LTRa_otAbJphCqfo0qomxcYhJ_bpqtf5JDxPhDlFaRsDTQ06k9vG_zQS"/>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto scrollbar-hide px-4 pb-24">
+<!-- Summary Stats / Hero -->
+<div class="mb-8 mt-2 px-2">
+<div class="bg-card-dark rounded-2xl p-6 relative overflow-hidden border border-white/5 shadow-lg">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-3xl rounded-full -mr-10 -mt-10 pointer-events-none"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-gray-400 text-sm mb-1">Today's Goal</p>
+<h2 class="text-2xl font-bold">45 / 50 Cards</h2>
+</div>
+<div class="w-12 h-12 rounded-full border-4 border-primary/30 flex items-center justify-center relative">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="85, 100" stroke-width="3"></path>
+</svg>
+<span class="absolute text-[10px] font-bold">90%</span>
+</div>
+</div>
+<div class="h-2 w-full bg-gray-700/50 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[90%] rounded-full shadow-glow"></div>
+</div>
+<p class="text-xs text-primary mt-3 font-medium flex items-center gap-1">
+<span class="material-icons-round text-sm">trending_up</span>
+                        Almost there! Keep it up.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Topics Grid Title -->
+<div class="flex justify-between items-center px-2 mb-4">
+<h3 class="text-lg font-bold">My Topics</h3>
+<button class="text-primary text-sm font-medium hover:text-white transition-colors">See All</button>
+</div>
+<!-- Topics Grid -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Card 1: Programming -->
+<div class="group bg-card-dark rounded-2xl p-4 border border-white/5 hover:border-primary/50 transition-all duration-300 relative overflow-hidden cursor-pointer active:scale-95">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center">
+<span class="material-icons-round">code</span>
+</div>
+<!-- Circular Progress -->
+<div class="relative w-10 h-10">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-gray-700" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-primary drop-shadow-[0_0_2px_rgba(255,106,0,0.8)]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="65, 100" stroke-width="3"></path>
+</svg>
+<span class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[9px] font-bold">65%</span>
+</div>
+</div>
+<h4 class="text-lg font-bold mb-1 truncate">Programming</h4>
+<div class="flex items-center gap-1 mb-3">
+<span class="material-icons-round text-yellow-500 text-xs">bolt</span>
+<span class="text-xs font-medium text-gray-300">1,200 XP</span>
+</div>
+<div class="pt-3 border-t border-white/5">
+<p class="text-[10px] text-gray-500 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                        Last studied 2h ago
+                    </p>
+</div>
+</div>
+<!-- Card 2: Spanish -->
+<div class="group bg-card-dark rounded-2xl p-4 border border-white/5 hover:border-primary/50 transition-all duration-300 relative overflow-hidden cursor-pointer active:scale-95">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-xl bg-yellow-500/20 text-yellow-400 flex items-center justify-center">
+<span class="material-icons-round">language</span>
+</div>
+<!-- Circular Progress -->
+<div class="relative w-10 h-10">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-gray-700" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="20, 100" stroke-width="3"></path>
+</svg>
+<span class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[9px] font-bold">20%</span>
+</div>
+</div>
+<h4 class="text-lg font-bold mb-1 truncate">Spanish A1</h4>
+<div class="flex items-center gap-1 mb-3">
+<span class="material-icons-round text-yellow-500 text-xs">bolt</span>
+<span class="text-xs font-medium text-gray-300">350 XP</span>
+</div>
+<div class="pt-3 border-t border-white/5">
+<p class="text-[10px] text-gray-500 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-gray-500"></span>
+                        Yesterday
+                    </p>
+</div>
+</div>
+<!-- Card 3: Art History -->
+<div class="group bg-card-dark rounded-2xl p-4 border border-white/5 hover:border-primary/50 transition-all duration-300 relative overflow-hidden cursor-pointer active:scale-95">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center">
+<span class="material-icons-round">palette</span>
+</div>
+<!-- Circular Progress -->
+<div class="relative w-10 h-10">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-gray-700" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-primary drop-shadow-[0_0_2px_rgba(255,106,0,0.8)]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="85, 100" stroke-width="3"></path>
+</svg>
+<span class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[9px] font-bold">85%</span>
+</div>
+</div>
+<h4 class="text-lg font-bold mb-1 truncate">Art History</h4>
+<div class="flex items-center gap-1 mb-3">
+<span class="material-icons-round text-yellow-500 text-xs">bolt</span>
+<span class="text-xs font-medium text-gray-300">2,400 XP</span>
+</div>
+<div class="pt-3 border-t border-white/5">
+<p class="text-[10px] text-gray-500 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                        5m ago
+                    </p>
+</div>
+</div>
+<!-- Card 4: Geography -->
+<div class="group bg-card-dark rounded-2xl p-4 border border-white/5 hover:border-primary/50 transition-all duration-300 relative overflow-hidden cursor-pointer active:scale-95">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-xl bg-green-500/20 text-green-400 flex items-center justify-center">
+<span class="material-icons-round">public</span>
+</div>
+<!-- Circular Progress -->
+<div class="relative w-10 h-10">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-gray-700" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="10, 100" stroke-width="3"></path>
+</svg>
+<span class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[9px] font-bold">10%</span>
+</div>
+</div>
+<h4 class="text-lg font-bold mb-1 truncate">World Capitals</h4>
+<div class="flex items-center gap-1 mb-3">
+<span class="material-icons-round text-yellow-500 text-xs">bolt</span>
+<span class="text-xs font-medium text-gray-300">120 XP</span>
+</div>
+<div class="pt-3 border-t border-white/5">
+<p class="text-[10px] text-gray-500 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                        3d ago
+                    </p>
+</div>
+</div>
+<!-- Card 5: UX Principles -->
+<div class="group bg-card-dark rounded-2xl p-4 border border-white/5 hover:border-primary/50 transition-all duration-300 relative overflow-hidden cursor-pointer active:scale-95 col-span-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center">
+<span class="material-icons-round text-2xl">design_services</span>
+</div>
+<div>
+<h4 class="text-lg font-bold truncate">UX Principles</h4>
+<div class="flex items-center gap-1">
+<span class="material-icons-round text-yellow-500 text-xs">bolt</span>
+<span class="text-xs font-medium text-gray-300">850 XP</span>
+</div>
+</div>
+</div>
+<div class="relative w-12 h-12">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-gray-700" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-primary drop-shadow-[0_0_2px_rgba(255,106,0,0.8)]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="45, 100" stroke-width="3"></path>
+</svg>
+<span class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[10px] font-bold">45%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Space for FAB -->
+<div class="h-24"></div>
+</main>
+<!-- Floating Action Button (Sticky) -->
+<div class="fixed bottom-24 right-6 z-30">
+<button class="w-16 h-16 rounded-full bg-primary shadow-glow text-white flex items-center justify-center transform transition-transform hover:scale-105 active:scale-90 border-4 border-background-dark">
+<span class="material-icons-round text-3xl">add</span>
+</button>
+</div>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 w-full bg-card-dark border-t border-white/5 pb-6 pt-3 px-6 z-20 rounded-t-2xl">
+<ul class="flex justify-between items-center">
+<li>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-icons-round">dashboard</span>
+<span class="text-[10px] font-medium">Topics</span>
+</a>
+</li>
+<li>
+<a class="flex flex-col items-center gap-1 text-gray-500 hover:text-white transition-colors" href="#">
+<span class="material-icons-round">explore</span>
+<span class="text-[10px] font-medium">Explore</span>
+</a>
+</li>
+<li>
+<a class="flex flex-col items-center gap-1 text-gray-500 hover:text-white transition-colors" href="#">
+<span class="material-icons-round">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</li>
+</ul>
+</nav>
+</body></html>

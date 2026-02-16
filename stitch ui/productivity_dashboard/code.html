@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Productivity Dashboard</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ff6a00",
+                        "primary-dark": "#cc5500", 
+                        "primary-light": "#ff9e57",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#23170f",
+                        "surface-dark": "#2e2119",
+                        "surface-darker": "#1a110a",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem", 
+                        "lg": "1.5rem", 
+                        "xl": "2rem",
+                        "2xl": "2.5rem",
+                        "3xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+        
+        /* Smooth gradient for the chart bars */
+        .bar-gradient {
+            background: linear-gradient(180deg, #ff6a00 0%, rgba(255, 106, 0, 0.4) 100%);
+        }
+        
+        .bar-gradient-muted {
+            background: linear-gradient(180deg, #5c4d44 0%, rgba(92, 77, 68, 0.2) 100%);
+        }
+
+        /* Radial progress custom CSS */
+        .radial-progress {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #ff6a00 0% 88%,     /* Percentage */
+                #4a3b32 88% 100%   /* Track color */
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .radial-progress::before {
+            content: "";
+            position: absolute;
+            width: 64px;
+            height: 64px;
+            background-color: #2e2119; /* Match card bg */
+            border-radius: 50%;
+        }
+        
+        .radial-value {
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-white font-display min-h-screen flex justify-center selection:bg-primary selection:text-white">
+<!-- Mobile Container -->
+<div class="w-full max-w-md h-screen relative flex flex-col overflow-hidden bg-background-light dark:bg-background-dark">
+<!-- Header -->
+<header class="px-6 pt-12 pb-4 flex justify-between items-center z-10">
+<div>
+<h2 class="text-sm font-medium text-slate-500 dark:text-orange-200/60 uppercase tracking-widest">Dashboard</h2>
+<h1 class="text-2xl font-bold mt-0.5">Your Progress</h1>
+</div>
+<button class="w-10 h-10 rounded-full bg-white dark:bg-surface-dark flex items-center justify-center shadow-sm border border-slate-100 dark:border-white/5 active:scale-95 transition-transform">
+<span class="material-symbols-rounded text-slate-400 dark:text-orange-100/50">settings</span>
+</button>
+</header>
+<!-- Scrollable Content -->
+<main class="flex-1 overflow-y-auto px-6 pb-28 space-y-6">
+<!-- Hero Card: Doom Replacement -->
+<div class="relative w-full bg-white dark:bg-surface-dark rounded-3xl p-6 shadow-xl shadow-primary/5 border border-slate-100 dark:border-white/5 overflow-hidden group">
+<!-- Decorative background blob -->
+<div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-colors duration-500"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-orange-200/50">Doom Replacement Tracker</span>
+</div>
+<div class="mt-4 flex items-baseline gap-1">
+<span class="text-6xl font-bold text-slate-900 dark:text-white tracking-tight">2<span class="text-4xl">h</span> 15<span class="text-4xl">m</span></span>
+</div>
+<p class="mt-2 text-sm text-slate-500 dark:text-slate-400 max-w-[80%] leading-relaxed">
+                        of social media time reclaimed &amp; converted into learning this week.
+                    </p>
+<div class="mt-6 flex items-center gap-3">
+<div class="h-1.5 flex-1 bg-slate-100 dark:bg-black/30 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[75%] rounded-full shadow-[0_0_10px_rgba(255,106,0,0.5)]"></div>
+</div>
+<span class="text-xs font-bold text-primary">Target: 3h</span>
+</div>
+</div>
+</div>
+<!-- Weekly Focus Graph -->
+<div class="w-full bg-white dark:bg-surface-dark rounded-3xl p-6 border border-slate-100 dark:border-white/5">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h3 class="text-lg font-bold">Weekly Focus</h3>
+<p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Daily learning activity</p>
+</div>
+<div class="flex items-center gap-1 text-primary bg-primary/10 px-3 py-1 rounded-full">
+<span class="material-symbols-rounded text-sm">trending_up</span>
+<span class="text-xs font-bold">+12%</span>
+</div>
+</div>
+<!-- Bar Chart -->
+<div class="flex items-end justify-between h-32 gap-2">
+<!-- Day 1 -->
+<div class="flex flex-col items-center gap-2 w-full group cursor-pointer">
+<div class="w-full max-w-[12px] h-[30%] bar-gradient-muted rounded-full transition-all duration-300 group-hover:bg-primary/40"></div>
+<span class="text-[10px] text-slate-400 font-medium">M</span>
+</div>
+<!-- Day 2 -->
+<div class="flex flex-col items-center gap-2 w-full group cursor-pointer">
+<div class="w-full max-w-[12px] h-[45%] bar-gradient-muted rounded-full transition-all duration-300 group-hover:bg-primary/40"></div>
+<span class="text-[10px] text-slate-400 font-medium">T</span>
+</div>
+<!-- Day 3 -->
+<div class="flex flex-col items-center gap-2 w-full group cursor-pointer">
+<div class="w-full max-w-[12px] h-[35%] bar-gradient-muted rounded-full transition-all duration-300 group-hover:bg-primary/40"></div>
+<span class="text-[10px] text-slate-400 font-medium">W</span>
+</div>
+<!-- Day 4 -->
+<div class="flex flex-col items-center gap-2 w-full group cursor-pointer">
+<div class="w-full max-w-[12px] h-[60%] bar-gradient-muted rounded-full transition-all duration-300 group-hover:bg-primary/40"></div>
+<span class="text-[10px] text-slate-400 font-medium">T</span>
+</div>
+<!-- Day 5 (Today - Highlighted) -->
+<div class="flex flex-col items-center gap-2 w-full group cursor-pointer">
+<div class="relative w-full max-w-[12px] h-[85%] bar-gradient rounded-full shadow-[0_0_15px_rgba(255,106,0,0.3)] transition-all duration-300 group-hover:scale-105">
+<!-- Tooltip for active day -->
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-white dark:bg-white text-background-dark text-[10px] font-bold py-0.5 px-2 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                                45m
+                            </div>
+</div>
+<span class="text-[10px] text-primary font-bold">F</span>
+</div>
+<!-- Day 6 -->
+<div class="flex flex-col items-center gap-2 w-full group cursor-pointer">
+<div class="w-full max-w-[12px] h-[20%] bar-gradient-muted rounded-full transition-all duration-300 group-hover:bg-primary/40"></div>
+<span class="text-[10px] text-slate-400 font-medium">S</span>
+</div>
+<!-- Day 7 -->
+<div class="flex flex-col items-center gap-2 w-full group cursor-pointer">
+<div class="w-full max-w-[12px] h-[15%] bar-gradient-muted rounded-full transition-all duration-300 group-hover:bg-primary/40"></div>
+<span class="text-[10px] text-slate-400 font-medium">S</span>
+</div>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Concepts Learned -->
+<div class="bg-white dark:bg-surface-dark rounded-3xl p-5 border border-slate-100 dark:border-white/5 flex flex-col justify-between h-40 relative overflow-hidden">
+<!-- Abstract pattern -->
+<div class="absolute -right-4 -bottom-4 opacity-5">
+<span class="material-symbols-rounded text-8xl">school</span>
+</div>
+<div class="flex items-start justify-between">
+<div class="w-10 h-10 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-rounded">lightbulb</span>
+</div>
+</div>
+<div>
+<div class="text-4xl font-bold text-slate-900 dark:text-white mb-1">142</div>
+<div class="text-xs font-medium text-slate-500 dark:text-slate-400">Concepts Learned</div>
+</div>
+</div>
+<!-- Quiz Accuracy -->
+<div class="bg-white dark:bg-surface-dark rounded-3xl p-5 border border-slate-100 dark:border-white/5 flex flex-col items-center justify-center h-40 gap-3">
+<div class="radial-progress">
+<span class="text-xl font-bold text-white radial-value">88%</span>
+</div>
+<div class="text-xs font-medium text-slate-500 dark:text-slate-400">Quiz Accuracy</div>
+</div>
+</div>
+<!-- Motivation Banner -->
+<div class="bg-gradient-to-r from-primary/20 to-primary/5 rounded-2xl p-4 flex items-center gap-4 border border-primary/10">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center shrink-0 shadow-lg shadow-primary/30">
+<span class="material-symbols-rounded text-white">local_fire_department</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-white">3 Day Streak!</h4>
+<p class="text-xs text-orange-200/70">You're building a powerful habit.</p>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<div class="absolute bottom-6 left-6 right-6 z-50">
+<nav class="bg-white/90 dark:bg-[#2e2119]/90 backdrop-blur-md rounded-full shadow-2xl border border-white/20 dark:border-white/5 p-1.5 flex justify-between items-center">
+<!-- Feed Tab -->
+<button class="flex-1 flex flex-col items-center justify-center py-3 rounded-full text-slate-400 hover:bg-black/5 dark:hover:bg-white/5 transition-colors group">
+<span class="material-symbols-rounded text-2xl group-hover:text-primary transition-colors">style</span>
+</button>
+<!-- Dashboard Tab (Active) -->
+<button class="flex-1 flex flex-col items-center justify-center py-3 rounded-full bg-primary text-white shadow-lg shadow-primary/30 transform scale-105">
+<span class="material-symbols-rounded text-2xl">insights</span>
+</button>
+<!-- Profile Tab -->
+<button class="flex-1 flex flex-col items-center justify-center py-3 rounded-full text-slate-400 hover:bg-black/5 dark:hover:bg-white/5 transition-colors group">
+<!-- Profile Avatar Placeholder -->
+<div class="w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden group-hover:ring-2 ring-primary transition-all">
+<img alt="User profile picture showing a woman smiling" class="w-full h-full object-cover opacity-80" data-alt="Small circular avatar of a user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgzeNT2cdIfRQyo3NhjfEPQOhvSNuSLOKf3o1LNmCrVp1t3zoBibLeTOHY1tJb4UK--g-knTO5rzXwnnVzvXNxfXwcfFtzHsBUJivxD1ga0VwA8nOauYWVxpCfp_6l3Bf2EsDE8YDvYEpAkjetUxXN76RkrEaXw3QQxzDeajGUqYz8FGSjFhnV0Gj8Y0BWM_e_6AkW6kA4HDmZErO9f8hXGKiomivRM61PpFojhhjWSv23-8X3kBbtINh4h2dZXMOe6Lnn5pVvl_0z"/>
+</div>
+</button>
+</nav>
+</div>
+<!-- Gradient overlay at bottom for smooth fade -->
+<div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background-light dark:from-background-dark to-transparent pointer-events-none z-20"></div>
+</div>
+</body></html>

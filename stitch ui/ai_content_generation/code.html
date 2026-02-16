@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Content Generation - Processing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ff6a00",
+                        "primary-dark": "#cc5500", 
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#23170f",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'spin-slow': 'spin 8s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom styles for gradients and glows that Tailwind utilities might not cover fully */
+        .glass-panel {
+            background: rgba(35, 23, 15, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 106, 0, 0.1);
+        }
+        
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(255, 106, 0, 0.3), inset 0 0 10px rgba(255, 106, 0, 0.1);
+        }
+        
+        .bg-grid-pattern {
+            background-image: linear-gradient(rgba(255, 106, 0, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 106, 0, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .processing-line {
+            position: absolute;
+            left: 23px; /* Align with icon center */
+            top: 3rem;
+            bottom: -1rem;
+            width: 2px;
+            background: linear-gradient(to bottom, #ff6a00 0%, #ff6a00 50%, rgba(255,106,0,0.2) 100%);
+            z-index: 0;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white h-screen overflow-hidden flex flex-col items-center justify-center relative">
+<!-- Background Decoration -->
+<div class="absolute inset-0 z-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
+<div class="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-primary/10 to-transparent pointer-events-none"></div>
+<!-- Floating abstract orbs for atmosphere -->
+<div class="absolute top-[-10%] right-[-20%] w-[300px] h-[300px] rounded-full bg-primary/20 blur-[80px] animate-pulse-slow pointer-events-none"></div>
+<div class="absolute bottom-[-10%] left-[-20%] w-[250px] h-[250px] rounded-full bg-primary/10 blur-[60px] pointer-events-none"></div>
+<!-- Main Content Container (Phone Form Factor) -->
+<main class="w-full max-w-md h-full flex flex-col relative z-10 px-6 py-8">
+<!-- Header -->
+<header class="flex justify-between items-center mb-8 pt-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors">
+<span class="material-icons text-white/60 text-xl">close</span>
+</button>
+<div class="text-xs font-medium tracking-widest uppercase text-primary/80">Processing Content</div>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</header>
+<!-- Visualization Centerpiece -->
+<section class="flex-1 flex flex-col items-center justify-center relative min-h-[300px]">
+<!-- Outer Ring -->
+<div class="absolute w-64 h-64 border border-primary/20 rounded-full animate-spin-slow"></div>
+<div class="absolute w-56 h-56 border border-primary/10 rounded-full border-dashed animate-spin-slow" style="animation-direction: reverse; animation-duration: 12s;"></div>
+<!-- Core Core -->
+<div class="relative w-40 h-40 rounded-full bg-gradient-to-br from-primary/30 to-transparent backdrop-blur-sm flex items-center justify-center animate-float glow-effect z-10">
+<div class="absolute inset-0 rounded-full bg-primary/20 blur-md animate-pulse"></div>
+<!-- Icon or Abstract Graphic -->
+<div class="relative z-20">
+<svg class="text-primary drop-shadow-[0_0_15px_rgba(255,106,0,0.6)]" fill="none" height="64" viewbox="0 0 24 24" width="64" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M2 17L12 22L22 17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M2 12L12 17L22 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</div>
+</div>
+<!-- Connecting particles -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none">
+<div class="absolute top-[20%] left-[20%] w-2 h-2 bg-primary rounded-full animate-ping opacity-75"></div>
+<div class="absolute bottom-[30%] right-[25%] w-1.5 h-1.5 bg-primary rounded-full animate-ping opacity-50 animation-delay-500"></div>
+<div class="absolute top-[30%] right-[20%] w-1 h-1 bg-primary rounded-full animate-ping opacity-90 animation-delay-200"></div>
+</div>
+</section>
+<!-- Progress Steps -->
+<section class="mb-8 w-full">
+<div class="glass-panel rounded-xl p-6 relative overflow-hidden">
+<!-- Inner glow for the card -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl -mr-10 -mt-10"></div>
+<h2 class="text-lg font-semibold text-white mb-6">Analyzing Material</h2>
+<div class="space-y-6 relative">
+<!-- Step 1: Completed -->
+<div class="relative z-10 flex items-start group">
+<!-- Connector Line -->
+<div class="absolute left-[11px] top-7 w-[2px] h-full bg-primary/30"></div>
+<div class="flex-shrink-0 relative">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center shadow-[0_0_10px_rgba(255,106,0,0.5)]">
+<span class="material-icons text-white text-sm font-bold">check</span>
+</div>
+</div>
+<div class="ml-4 flex-1">
+<h3 class="text-white font-medium text-base">Extracting key concepts</h3>
+<p class="text-white/40 text-sm mt-0.5">Found 24 core topics</p>
+</div>
+</div>
+<!-- Step 2: Active -->
+<div class="relative z-10 flex items-start">
+<!-- Connector Line (faded) -->
+<div class="absolute left-[11px] top-7 w-[2px] h-full bg-gradient-to-b from-primary/30 to-transparent"></div>
+<div class="flex-shrink-0 relative">
+<div class="absolute inset-0 bg-primary/40 rounded-full animate-ping"></div>
+<div class="w-6 h-6 rounded-full bg-background-dark border-2 border-primary flex items-center justify-center relative z-10">
+<div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+</div>
+</div>
+<div class="ml-4 flex-1">
+<div class="flex justify-between items-center mb-1">
+<h3 class="text-primary font-medium text-base drop-shadow-[0_0_8px_rgba(255,106,0,0.5)]">Generating flashcards</h3>
+<span class="text-xs text-primary font-mono">68%</span>
+</div>
+<!-- Progress Bar -->
+<div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[68%] shadow-[0_0_10px_rgba(255,106,0,0.8)] rounded-full relative overflow-hidden">
+<div class="absolute top-0 left-0 bottom-0 right-0 bg-gradient-to-r from-transparent via-white/30 to-transparent w-full -translate-x-full animate-[shimmer_1.5s_infinite]"></div>
+</div>
+</div>
+<p class="text-primary/70 text-sm mt-2 animate-pulse">Synthesizing definitions...</p>
+</div>
+</div>
+<!-- Step 3: Pending -->
+<div class="relative z-10 flex items-center opacity-40">
+<div class="flex-shrink-0">
+<div class="w-6 h-6 rounded-full border-2 border-white/20 bg-transparent"></div>
+</div>
+<div class="ml-4 flex-1">
+<h3 class="text-white font-medium text-base">Building quiz</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Action -->
+<footer class="mt-auto mb-2">
+<button class="w-full bg-white/5 hover:bg-white/10 border border-white/10 active:bg-white/15 text-white font-medium py-4 rounded-full transition-all flex items-center justify-center gap-2 group">
+<span class="material-icons text-white/50 group-hover:text-white/80 transition-colors text-lg">layers</span>
+                Run in background
+            </button>
+<p class="text-center text-white/30 text-xs mt-4 mb-2">We'll notify you when it's ready.</p>
+</footer>
+</main>
+<!-- Image Data Attributes for context (Screen reader / AI parsing) -->
+<img alt="AI processing visualization" class="hidden" data-alt="Abstract glowing network nodes connecting in dark space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACRnVPz-CJscTBjhu0Gl6pAQv_Qrh25PzD4gUv8YQ80b0hh62Q5hGzTP84-3o9ss_1NmvOV4mNEGB5qrXrBeEK-jQVkTFBb3ILf-BX8fn8aGo8wj4P9AGmHxJi-LWPki0j3u7jGYf4akTp_bsU9eSw39CASOCgl-vRMB33gFn3dHD4g119gy9b5aQtc12zEeU7tZh8jfeBrfOz8NoY6UW88pHGUHueptULil41D-W79YPMFyBL27AO2m7kwWlXYgZ7TMmzBviTfU91"/>
+<style>
+        @keyframes shimmer {
+            100% { transform: translateX(100%); }
+        }
+    </style>
+</body></html>

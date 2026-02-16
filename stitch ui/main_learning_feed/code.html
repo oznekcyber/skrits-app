@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Main Learning Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ff6a00",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#23170f",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scroll snap for that "TikTok" feel */
+        .snap-y-mandatory {
+            scroll-snap-type: y mandatory;
+        }
+        .snap-center {
+            scroll-snap-align: center;
+        }
+        /* Hide scrollbar for clean look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .glass-panel {
+            background: rgba(35, 23, 15, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white h-screen overflow-hidden antialiased select-none">
+<!-- Main Feed Container -->
+<main class="h-full w-full relative snap-y-mandatory overflow-y-scroll no-scrollbar">
+<!-- Card 1: The Active Card -->
+<section class="h-full w-full relative snap-center shrink-0 flex flex-col justify-end p-6 pb-12 overflow-hidden">
+<!-- Dynamic Background -->
+<div class="absolute inset-0 z-0">
+<!-- Abstract dark gradient background representing networking data flow -->
+<div class="absolute inset-0 bg-gradient-to-b from-background-dark/80 via-background-dark/90 to-background-dark"></div>
+<!-- Subtle visual pattern/image behind -->
+<img alt="Background Pattern" class="w-full h-full object-cover opacity-30 mix-blend-overlay" data-alt="Abstract server room lights blurred blue and orange" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtg2SW-aZpcqC6fh1jCxDCviShIMDDJwlVOFtONmdqX4-9N3ZiW-nXznBREl8fWkzNpNymU3MMvXuApHFS1rR1s4dKJbJ-ve1ru4rvbQ7zMhrh3-8ZdqlWbJXFns0JQtyHNRLGnj7efTLW0byUdeI_AE4QK_ezC1NB6j447QPfxE64drcGxJFJt6XsrNnJj1oV9tSmQ1cLVY6avpRjZ-QJXO_0zw8HfSiaHudnmp9kLqkt0MAkYCh3g3dpFF3XRE2XvGOVVbdtHm27"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/40 to-transparent"></div>
+</div>
+<!-- Top Header (Fixed Overlay position relative to card for this demo, would be fixed in real app) -->
+<div class="absolute top-0 left-0 right-0 p-6 z-20 flex justify-between items-start pt-14">
+<!-- Topic Pill -->
+<div class="glass-panel px-4 py-2 rounded-full flex items-center space-x-2">
+<span class="material-icons-round text-primary text-sm">hub</span>
+<span class="text-sm font-semibold tracking-wide text-gray-200">Networking</span>
+</div>
+<!-- Stats Pill -->
+<div class="glass-panel px-4 py-2 rounded-full flex items-center space-x-4">
+<div class="flex items-center space-x-1">
+<span class="text-white font-bold text-sm">12</span>
+<span class="text-primary text-lg">🔥</span>
+</div>
+<!-- XP Bar -->
+<div class="w-16 h-1.5 bg-gray-700/50 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[65%] rounded-full shadow-[0_0_10px_rgba(255,106,0,0.5)]"></div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar Actions -->
+<div class="absolute right-4 bottom-24 z-20 flex flex-col items-center space-y-6">
+<!-- Profile/Author -->
+<div class="group relative">
+<div class="w-12 h-12 rounded-full border-2 border-primary p-0.5 cursor-pointer">
+<img alt="Creator" class="w-full h-full rounded-full object-cover" data-alt="User profile picture woman smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCB2vJICyCJcXFNhZTC_MUOTJNYhyiQwHXgT8O54xk5KaWfjmtFjckcVXni5AD5x_0vxH5rgTxebjq-ibAMD6xDPLQmhnrpSmX9V_EbFRV_de_O1LDWBosaQrFqeBSgizjoOaV7SW__WPh7aknUG2YnQsq7kB0XiXckhJmmGHvnUFzOo-g4iHs-U_UZz6g_T8xUorHKIuM3Q4I-qeKrfUGsRTza-yAKJfA68BpIgDpPMpdspklbSmWr67BkPmamBFrTOB_vUZiRv8l"/>
+</div>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] px-1.5 rounded-full font-bold">PRO</div>
+</div>
+<!-- Like/Upvote -->
+<div class="flex flex-col items-center gap-1">
+<button class="w-12 h-12 glass-panel rounded-full flex items-center justify-center hover:bg-white/10 active:scale-95 transition-all group">
+<span class="material-icons-round text-white group-hover:text-primary transition-colors text-2xl">favorite</span>
+</button>
+<span class="text-xs font-medium text-white/80">2.4k</span>
+</div>
+<!-- Save/Bookmark -->
+<div class="flex flex-col items-center gap-1">
+<button class="w-12 h-12 glass-panel rounded-full flex items-center justify-center hover:bg-white/10 active:scale-95 transition-all group">
+<span class="material-icons-round text-white group-hover:text-primary transition-colors text-2xl">bookmark_border</span>
+</button>
+<span class="text-xs font-medium text-white/80">Save</span>
+</div>
+<!-- Share -->
+<div class="flex flex-col items-center gap-1">
+<button class="w-12 h-12 glass-panel rounded-full flex items-center justify-center hover:bg-white/10 active:scale-95 transition-all">
+<span class="material-icons-round text-white text-2xl">share</span>
+</button>
+<span class="text-xs font-medium text-white/80">Share</span>
+</div>
+<!-- Mark Learned (Primary Action) -->
+<button class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center shadow-lg shadow-primary/30 mt-4 active:scale-90 transition-transform animate-pulse">
+<span class="material-icons-round text-3xl">check</span>
+</button>
+</div>
+<!-- Vertical Pagination Dots (Right Edge, subtle) -->
+<div class="absolute right-1 top-1/2 -translate-y-1/2 z-10 flex flex-col gap-2 opacity-50">
+<div class="w-1 h-1 bg-white/30 rounded-full"></div>
+<div class="w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_8px_#ff6a00]"></div> <!-- Active -->
+<div class="w-1 h-1 bg-white/30 rounded-full"></div>
+<div class="w-1 h-1 bg-white/30 rounded-full"></div>
+</div>
+<!-- Main Content Area -->
+<div class="z-20 w-[85%] mb-8">
+<!-- Tag/Label -->
+<div class="flex items-center space-x-2 mb-3">
+<span class="px-2 py-0.5 rounded border border-primary/40 bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">Concept Card</span>
+<span class="text-gray-400 text-xs">•</span>
+<span class="text-gray-400 text-xs font-medium">Fundamental</span>
+</div>
+<!-- Title -->
+<h1 class="text-4xl font-bold text-white mb-4 leading-tight text-shadow">
+                    OSI Model <span class="text-primary block mt-1">Layer 1</span>
+</h1>
+<!-- Explanation Text -->
+<div class="glass-panel p-5 rounded-2xl mb-4 border-l-4 border-primary/80">
+<p class="text-gray-200 text-lg leading-relaxed font-normal">
+                        The <span class="text-white font-semibold">Physical Layer</span> handles the raw bit stream over a physical medium. It defines electrical &amp; physical specifications like voltages, pin layouts, and radio frequencies.
+                    </p>
+</div>
+<!-- Interactive Hint -->
+<div class="flex items-center space-x-3 group cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+<span class="material-icons-round text-primary animate-bounce-horizontal">arrow_forward</span>
+</div>
+<span class="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">Swipe for Example</span>
+</div>
+</div>
+<!-- Bottom Safe Area Spacer -->
+<div class="h-6 w-full"></div>
+<!-- Bottom Swipe Indicator (Subtle visual cue) -->
+<div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-gray-700/50 rounded-full"></div>
+</section>
+<!-- Card 2: Next Card (Partially visible for context) -->
+<section class="h-full w-full relative snap-center shrink-0 flex items-center justify-center bg-background-dark border-t border-white/5">
+<div class="text-center opacity-50">
+<span class="text-primary text-xl font-bold">Next Concept</span>
+<h2 class="text-3xl font-bold text-white mt-2">Data Link Layer</h2>
+</div>
+</section>
+</main>
+<!-- Navigation Bar (Floating Bottom) -->
+<nav class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+<div class="glass-panel px-6 py-3 rounded-2xl flex items-center space-x-8 shadow-2xl shadow-black/50 border border-white/10">
+<button class="flex flex-col items-center space-y-1 text-primary">
+<span class="material-icons-round text-2xl">dynamic_feed</span>
+<span class="text-[10px] font-medium">Feed</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-gray-400 hover:text-white transition-colors">
+<span class="material-icons-round text-2xl">search</span>
+<span class="text-[10px] font-medium">Explore</span>
+</button>
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/30 -mt-8 border-4 border-[#23170f]">
+<span class="material-icons-round text-white text-xl">add</span>
+</div>
+<button class="flex flex-col items-center space-y-1 text-gray-400 hover:text-white transition-colors">
+<span class="material-icons-round text-2xl">leaderboard</span>
+<span class="text-[10px] font-medium">Stats</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-gray-400 hover:text-white transition-colors">
+<span class="material-icons-round text-2xl">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</div>
+</nav>
+<style>
+        @keyframes bounce-horizontal {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(3px); }
+        }
+        .animate-bounce-horizontal {
+            animation: bounce-horizontal 1.5s infinite;
+        }
+    </style>
+</body></html>
